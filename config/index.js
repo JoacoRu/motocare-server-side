@@ -4,7 +4,7 @@ module.exports = {
         port: 6005
     },
     mongodb: {
-        host: '',
+        host: 'localhost',
         port: 27017,
         connectionConfig: {
             userNewUrlParser: true

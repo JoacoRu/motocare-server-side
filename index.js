@@ -10,9 +10,9 @@ const app = express();
 
 const url = `mongodb://${config.mongodb.host}:${config.mongodb.port}/${config.database}`;
 
-mongoose.connect(url, confif.mongodb.connectionConfig, err => error ? console.error(`MongoDB Conneciton error: ${error}`): null);
+mongoose.connect(url, config.mongodb.connectionConfig, error => error ? console.error(`MongoDB Conneciton error: ${error}`): null);
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ useNewUrlParser: true } ));
 app.use(cors());
 app.use('/', require('./routes'));
 

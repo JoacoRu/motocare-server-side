@@ -1,6 +1,6 @@
 'use strict'
 
-const userService = require('../services/users.service');
+const userService = require('../services/users.services');
 const UserService = new userService();
 
 class usersController {
