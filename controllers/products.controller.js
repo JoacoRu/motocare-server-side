@@ -43,6 +43,7 @@ class productsController {
     async create(req, res) { 
         const payload = req.body;
         let response;
+        
         try {
             response = await productsService.create(payload);
         } catch (e) {

@@ -6,7 +6,7 @@ module.exports = function (req, res, next) {
    if (!token) return res.status(401).send('Acceso denegado. Clave incorrecta.');
 
    try {
-       const decoded = jwt.verify(token, config);
+       const decoded = jwt.verify(token, config.privateKey);
        req.user = decoded;
        next();
    }

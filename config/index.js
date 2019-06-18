@@ -10,7 +10,7 @@ module.exports = {
     },
 
     jwt: {
-        privateKey: '',
-        algorithm: 'HS256'
+        privateKey: 'test',
+        algorithm: {algorithm: 'HS256'}
     }
 }

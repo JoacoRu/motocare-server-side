@@ -41,6 +41,7 @@ class usersController {
 
     async create(req, res) {
         const payload = req.body;
+        
         let response;
         try {
             response = await UserService.create(payload);
@@ -52,7 +53,7 @@ class usersController {
         
         return res.json({
             status: 200,
-            message: response
+            message: 'Usuario creado'
         });
     }
 
