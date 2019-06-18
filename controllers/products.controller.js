@@ -24,19 +24,74 @@ class productsController {
     }
 
     async list(req, res) {
+        let response;
+        try {
+            response = await productsService.list({});
+            if(!response) res.status(404).send('Todavia no se creo ningun usuario')
+        } catch(e) {
+            res.status(502).send({
+                messgae: e
+            });
+        }
 
+        return res.json({
+           status: 200,
+           message: response 
+        });
     }
 
     async create(req, res) { 
+        const payload = req.body;
+        let response;
+        try {
+            response = await productsService.create(payload);
+        } catch (e) {
+            res.status(502).send({
+                message: e
+            });
+        }
 
+        return res.json({
+            status: 200,
+            message: response
+        });
     }
 
     async delete(req, res) {
+        const productId = req.params.productId;
+        let response;
 
+        try {
+            response = await productsService.delete(productId); 
+        } catch (e) {
+            res.status(502).send({
+                message: e
+            });
+        }
+
+        return res.json({
+            status: 200,
+            message: response
+        });
     }
 
     async update(req, res) {
-        
+        const productId = req.params.productId;
+        const payload = req.body;
+        let response;
+
+        try {
+            response = await productsService.update(productId, payload);
+        } catch (e) {
+            res.status(502).send({
+                message: e
+            });
+        }
+
+        return res.json({
+            status: 200,
+            message: response
+        });
     }
 }
 

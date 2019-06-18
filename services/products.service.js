@@ -14,13 +14,13 @@ class productsService {
         let {title, description, marca, modelo, ano, estado, kilometraje, precio, moneda, cilindrada, user} = payload;
         payload = {title, description, marca, modelo, ano, estado, kilometraje, precio, moneda, cilindrada, user};
         
-        const product = new productsModel();
+        const Product = new productsModel(payload);
 
-        return product.save();
+        return Product.save();
     }
 
-    async delete(productId, payload) {
-        return productsModel.findByIdAndDelete(productId, payload);
+    async delete(productId) {
+        return productsModel.findByIdAndDelete(productId);
     }
 
     async update(productId, payload) {

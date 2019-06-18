@@ -9,5 +9,8 @@ module.exports = {
         database: 'motocaredb'
     },
 
-    jwt: ''
+    jwt: {
+        privateKey: '',
+        algorithm: 'HS256'
+    }
 }
