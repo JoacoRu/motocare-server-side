@@ -21,15 +21,7 @@ const productsSchema = new Schema({
         type: String,
         required: [true, 'El modelo es requerido']
     },
-    ano: {
-        type: Number,
-        required: [true, 'El año es requerido']
-    },
-    estado: {
-        type: Number,
-        required: [true, 'El estado es requerido'],
-    }, // Si el estado es 0 es nueva, si es 1 es usado
-    kilometraje: {
+    kilometros: {
         type: Number,
         required: [true, 'El kilometraje es requerido'],
     },
@@ -61,7 +53,17 @@ const productsSchema = new Schema({
         type: Number,
         required: [true, 'El tipo de producto es requerido'],
         default: 0
-    } // Si es 0 es una publicacion normal, si es 1 es destacada
+    }, // Si es 0 es una publicacion normal, si es 1 es destacada
+    img: {
+        type: Object,
+        required: [true, 'Es necesario al menos una imagen'],
+        default: null
+    },
+    state: {
+        type: Number,
+        required: [true, 'La publicacion tiene que tener un estado ej: finalizada/en curso'],
+        default: 0
+    }
 });
 
 module.exports = mongoose.model('products', productsSchema);

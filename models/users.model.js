@@ -34,6 +34,15 @@ const userSchema = new Schema({
         type: Number,
         required: false,
         default: null
+    },
+    localidad: {
+        type: String,
+        required: [true, 'El usuario necesita tener una localidad'],
+        default: ''
+    },
+    provincia: {
+        type: String,
+        required: [true, 'El usuario debe tener una provincia']
     }
 });
 
