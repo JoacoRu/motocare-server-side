@@ -98,6 +98,39 @@ class usersController {
             action: 'El usuario fue actualizado'
         });
     }
+
+    async auth(req, res) {
+        let response;
+        const payload = req.body;
+        try {
+            response = await UserService.auth(payload);
+            if (!response) return res.status(403).send({message: 'Bad credentials'});
+        } catch (e) {
+            res.json({
+                status: 502,
+                message: e
+            });
+        }
+        return res.json({
+            status: 200,
+            token: response.token
+        })
+    }
+
+    async isTokenValid(req, res) {
+        let response;
+        const token = req.header('x-auth-token');
+        try {
+            response = await  UserService.isValidToken(token);
+            if(!response) return res.status(403).send({message: 'Token invalido'});
+        } catch (e) {
+            res.status(502).send({message: e});
+        }
+
+        return res.send({
+            token: true
+        });
+    }
 }
 
 module.exports = usersController;

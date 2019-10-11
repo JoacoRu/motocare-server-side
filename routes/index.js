@@ -10,12 +10,12 @@ const UsersController = require('../controllers/users.controller');
 const userController = new UsersController();
 
 routes.get('/users/:userId', userController.get.bind(userController));
-routes.post('/users/create', userController.create.bind(userController));
+routes.post('/users', userController.create.bind(userController));
 routes.get('/users', userController.list.bind(userController));
 routes.delete('/users/:userId', userController.delete.bind(userController));
 routes.put('/users/:userId', userController.update.bind(userController));
-
-
+routes.post('/users/login', userController.auth.bind(userController));
+routes.get('/token', userController.isTokenValid.bind(userController));
 //Products
 
 const ProductsController = require('../controllers/products.controller');
