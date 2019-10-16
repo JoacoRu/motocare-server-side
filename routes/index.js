@@ -24,9 +24,21 @@ const productValidator = require('../middlewares/product');
 
 routes.get('/products/:productId', productsController.get.bind(productsController));
 routes.get('/products', productsController.list.bind(productsController));
-routes.post('/products', productValidator,productsController.create.bind(productsController));
+routes.post('/products', productValidator, productsController.create.bind(productsController));
 routes.delete('/products/:productId', productsController.delete.bind(productsController));
 routes.put('/products/:productId', productsController.update.bind(productsController));
+
+
+//Noticias
+
+const NewsController = require('../controllers/news.controller');
+const newsController = new NewsController();
+
+routes.get('/news/:newsId', newsController.get.bind(newsController));
+routes.get('/news', newsController.list.bind(newsController));
+routes.post('/news', newsController.create.bind(newsController));
+routes.delete('/news/:newsId', newsController.delete.bind(newsController));
+routes.put('/news/:newsId', newsController.update.bind(newsController));
 
 
 module.exports = routes;
