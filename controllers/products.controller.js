@@ -64,6 +64,7 @@ class productsController {
 
         try {
             response = await productsService.delete(productId); 
+            if(!response) res.status(404).send('No se encontro ningun producto');
         } catch (e) {
             res.status(502).send({
                 message: e
@@ -83,6 +84,7 @@ class productsController {
 
         try {
             response = await productsService.update(productId, payload);
+            if(!response) res.status(404).send('No se encontro ningun producto');
         } catch (e) {
             res.status(502).send({
                 message: e

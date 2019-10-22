@@ -41,4 +41,14 @@ routes.delete('/news/:newsId', newsController.delete.bind(newsController));
 routes.put('/news/:newsId', newsController.update.bind(newsController));
 
 
+//Preguntas
+const QuestionController = require('../controllers/questions.controller');
+const questionController = new QuestionController();
+
+routes.get('/questions/:publicationId', questionController.get.bind(questionController));
+routes.post('/questions/', questionController.create.bind(questionController));
+routes.put('/questions/:questionId', questionController.update.bind(questionController));
+routes.delete('/questions/:questionId', questionController.delete.bind(questionController));
+
+
 module.exports = routes;

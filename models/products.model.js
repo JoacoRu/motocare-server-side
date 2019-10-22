@@ -55,12 +55,17 @@ const productsSchema = new Schema({
         default: 0
     }, // Si es 0 es una publicacion normal, si es 1 es destacada
     img: {
-        type: Object,
+        type: Array,
         required: [true, 'Es necesario al menos una imagen'],
         default: null
     },
     state: {
         type: Number,
+        required: [true, 'La publicacion tiene que tener un estado ej: finalizada/en curso'],
+        default: 0
+    },
+    userId: {
+        type: Array,
         required: [true, 'La publicacion tiene que tener un estado ej: finalizada/en curso'],
         default: 0
     }
